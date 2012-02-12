@@ -3,12 +3,14 @@
 //  LockTest
 //
 //  Created by Hidetoshi Mori on 12/02/12.
-//  Copyright (c) 2012年 FLIGHT SYSTEM CONSULTING Inc. All rights reserved.
+//  Copyright (c) 2012年 Hidetoshi Mori. All rights reserved.
 //
 
 #import "LTAppDelegate.h"
 
 #import "LTViewController.h"
+#import "LTWindow.h"
+#import "LTLockViewController.h"
 
 @implementation LTAppDelegate
 
@@ -24,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[[LTWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
@@ -69,6 +71,15 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark - Public
+
+- (void)lockScreen {
+    if (!_viewController.presentedViewController) {
+        id ctl = [[[LTLockViewController alloc] init] autorelease];
+        [_viewController presentModalViewController:ctl animated:YES];
+    }
 }
 
 @end

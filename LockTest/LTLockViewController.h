@@ -1,5 +1,5 @@
 //
-//  LTViewController.h
+//  LTLockViewController.h
 //  LockTest
 //
 //  Created by Hidetoshi Mori on 12/02/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LTViewController : UIViewController
+@interface LTLockViewController : UIViewController
 
 @end
